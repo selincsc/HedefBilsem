@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import Kingfisher
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var view_outlet: view_desing!
+    @IBOutlet weak var label_outlet: UILabel!
 }
