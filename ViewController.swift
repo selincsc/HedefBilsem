@@ -10,13 +10,14 @@ import Kingfisher
 import Alamofire
 import SwiftyJSON
 import ImageSlideshow
-class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
 var slider_array = [KingfisherSource]()
  
     override func viewDidLoad() {
         super.viewDidLoad()
         hedef_slider_list()
         hedef_collection_list()
+        hedef_table_list()
     }
 
     @IBOutlet weak var image_view_outlet: AnimatedImageView!
@@ -44,6 +45,15 @@ var slider_array = [KingfisherSource]()
         didSet{
             collection_view_2_outlet.dataSource = self
             collection_view_2_outlet.delegate = self
+            collection_view_2_outlet.backgroundColor = .clear
+        }
+    }
+    @IBOutlet weak var table_view_outlet: UITableView!{
+        didSet{
+            table_view_outlet.delegate = self
+            table_view_outlet.dataSource = self
+            table_view_outlet.rowHeight = 143
+            table_view_outlet.backgroundColor = .clear
         }
     }
 }
@@ -93,6 +103,7 @@ extension ViewController{
                 
                 hedef = JSON(value)
                 collection_view_outlet.reloadData()
+                collection_view_2_outlet.reloadData()
                 print(" gelen data: \(hedef)")
             case .failure(let error):
                 Swift.print(error)
@@ -107,15 +118,23 @@ extension ViewController{
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection_view_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell",for: indexPath) as! CollectionViewCell
-        
+       
         print("TEST")
-        
         cell.backgroundColor = .clear
         cell.label_outlet.text = hedef["data"]["konular"][indexPath.item]["title"].stringValue
         cell.layer.cornerRadius = 12
         cell.view_outlet.backgroundColor  = .clear
         cell.view_outlet.layer.cornerRadius = 12
-       
+        
+        
+        if (collectionView == collection_view_2_outlet){
+                   let cell = collection_view_2_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell2",for: indexPath) as! CollectionViewCell2
+            cell.deneme_label_outlet.text = hedef["data"]["denemeler"][indexPath.item]["title"].stringValue
+            cell.layer.cornerRadius = 12
+            cell.view_outlet.backgroundColor  = .clear
+            cell.view_outlet.layer.cornerRadius = 12
+            print("bıdbııdıdbıdıd")
+               }
         return cell
     }
     
@@ -123,4 +142,57 @@ extension ViewController{
         return CGSize(width: 180,height: 120)
     }
 }
- 
+extension ViewController{
+    //TABLEVIEW
+    //ALAMOFIRE JSON
+    func hedef_table_list(){
+        let parameters : Parameters = [
+            "user_id" : "2Nhbjksb7KRkl7CpHIiLGHAEM4rtOtLS",
+        ]
+        let url = apiURL + "/get_anasayfa"
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                
+                hedef = JSON(value)
+                table_view_outlet.reloadData()
+                print(" gelen data: \(hedef)")
+            case .failure(let error):
+                Swift.print(error)
+            }
+        }
+    }
+}
+extension ViewController{
+    //TABLEVIEW
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hedef["data"].count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table_view_outlet.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath) as! TableViewCell
+        cell.backgroundColor = .clear
+        Url_To_Image(url: imageBaseURL + hedef["data"]["slider"][indexPath.item]["img_url"].stringValue, imageView: cell.image_view_outlet)
+        cell.image_view_outlet.contentMode = .scaleToFill
+        cell.view_outlet.layer.cornerRadius = 12
+        cell.layer.cornerRadius = 12
+        
+        let when = DispatchTime.now() + 0.05 //Burası 0.05 sani bekletiyor.
+                
+                DispatchQueue.main.asyncAfter(deadline: when){
+                    
+                    DispatchQueue.main.async{ [self] in
+                        
+                        content_view_outlet.autoresizesSubviews = false //contentview autoresize false yapıyoruz ki büyütürken herşey büyümesin.
+                        table_view_outlet.setFrameHeight(height: table_view_outlet.contentSize.height) //tableview'i içindeki nesnelerin boyutu kadar büyütüyoruz.
+                        content_view_outlet.setFrameHeight(height: table_view_outlet.frame.maxY + 20) //contentviewe tableview max y + 20 kadar büyütüyoruz.
+                        content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
+                    }
+                }
+        return cell
+
+    }
+
+}
