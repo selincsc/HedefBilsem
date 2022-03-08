@@ -75,18 +75,21 @@ open class label_desing: UILabel {
     func setup() {
         backgroundColor = Color._FFFFFF
         
+        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        layer.cornerRadius = 12
+        
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
 }
 
 

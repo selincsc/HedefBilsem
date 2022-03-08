@@ -10,5 +10,10 @@ import Kingfisher
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var view_outlet: view_desing!
-    @IBOutlet weak var label_outlet: UILabel!
+    @IBOutlet weak var label_outlet: UILabel!{
+        didSet{
+            label_outlet.layer.cornerRadius = 12           
+            
+        }
+    }
 }

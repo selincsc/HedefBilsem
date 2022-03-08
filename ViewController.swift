@@ -12,6 +12,7 @@ import SwiftyJSON
 import ImageSlideshow
 class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 var slider_array = [KingfisherSource]()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         hedef_slider_list()
@@ -34,6 +35,8 @@ var slider_array = [KingfisherSource]()
         didSet{
             collection_view_outlet.delegate = self
             collection_view_outlet.dataSource = self
+            collection_view_outlet.backgroundColor = .clear
+            
         }
     }
     
@@ -100,7 +103,7 @@ extension ViewController{
 extension ViewController{
     //COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return hedef["data"].count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection_view_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell",for: indexPath) as! CollectionViewCell
@@ -108,13 +111,16 @@ extension ViewController{
         print("TEST")
         
         cell.backgroundColor = .clear
-        cell.label_outlet.text = "fvşiösifvçi"
+        cell.label_outlet.text = hedef["data"]["konular"][indexPath.item]["title"].stringValue
         cell.layer.cornerRadius = 12
+        cell.view_outlet.backgroundColor  = .clear
+        cell.view_outlet.layer.cornerRadius = 12
        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100,height: 100)
+        return CGSize(width: 180,height: 120)
     }
 }
+ 
