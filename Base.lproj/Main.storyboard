@@ -306,9 +306,6 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
-                                        <connections>
-                                            <action selector="back_button_action:" destination="BZO-Te-uxd" eventType="touchUpInside" id="kza-V7-VfR"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -367,7 +364,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="269"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-CQ-5n7">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-CQ-5n7" customClass="view_desing" customModule="HedefBilsem" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="8" width="207" height="253"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>

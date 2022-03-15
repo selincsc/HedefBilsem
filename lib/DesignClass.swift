@@ -15,7 +15,7 @@ open class view_desing: UIView {
     
     func setup() {
         layer.cornerRadius = 12
-        backgroundColor = Color._FFFFFF
+       
         
     }
     
