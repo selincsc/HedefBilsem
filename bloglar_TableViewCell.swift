@@ -1,13 +1,13 @@
 //
-//  TableViewCell.swift
+//  bloglar_TableViewCell.swift
 //  HedefBilsem
 //
-//  Created by Selin Çağlar on 8.03.2022.
+//  Created by Selin Çağlar on 15.03.2022.
 //
 
 import UIKit
 import Kingfisher
-class TableViewCell: UITableViewCell {
+class bloglar_TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +21,6 @@ class TableViewCell: UITableViewCell {
     }
     @IBOutlet weak var view_outlet: UIView!
     @IBOutlet weak var image_view_outlet: AnimatedImageView!
-    
     @IBOutlet weak var label_outlet: UILabel!
+    
 }

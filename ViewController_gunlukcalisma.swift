@@ -15,13 +15,14 @@ class ViewController_gunlukcalisma: MyController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         gunlukcalisma_collection_list()
     }
-    
     @IBOutlet weak var label_outlet: label_desing!{
             didSet{
                 label_outlet.layer.cornerRadius = 12
             }
         }
-        
+    @IBAction func back_button_action(_ sender: Any) {
+        showVC(identifierName: "ViewController")
+    }
     @IBOutlet weak var collection_view_outlet: UICollectionView!{
         didSet{
             collection_view_outlet.dataSource = self
@@ -55,9 +56,7 @@ extension ViewController_gunlukcalisma{
                 print(" gelen data: \(hedef)")
             case .failure(let error):
                 Swift.print(error)
-                
             }
-            
         }
     }
 }
@@ -75,6 +74,7 @@ extension ViewController_gunlukcalisma{
                 cell.haftalar_label_outlet.text = hedef["data"][indexPath.item]["title"].stringValue
                 cell.tarih_label_outlet.text = hedef["data"][indexPath.item]["tarih"].stringValue
                 cell.layer.cornerRadius = 12
+               
                 let when = DispatchTime.now() + 0.05 //Burası 0.05 sani bekletiyor.
             
             DispatchQueue.main.asyncAfter(deadline: when){
@@ -87,8 +87,6 @@ extension ViewController_gunlukcalisma{
                     content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
                 }
             }
-            
-           
                 return cell
             }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

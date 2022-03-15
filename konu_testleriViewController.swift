@@ -23,7 +23,9 @@ class konu_testleriViewController: MyController, UICollectionViewDelegate, UICol
             collection_view_outlet.backgroundColor  = .clear
         }
     }
-    
+    @IBAction func back_button_action(_ sender: Any) {
+        showVC(identifierName: "ViewController")
+    }
     @IBOutlet weak var content_view_outlet: UIImageView!
 }
 extension konu_testleriViewController{
@@ -47,7 +49,6 @@ extension konu_testleriViewController{
                 print(" gelen data: \(hedef)")
             case .failure(let error):
                 Swift.print(error)
-                
             }
             
         }
@@ -77,8 +78,7 @@ extension konu_testleriViewController{
                 content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
             }
         }
-        
-       
+
             return cell
         }
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

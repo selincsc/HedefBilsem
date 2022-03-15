@@ -27,7 +27,12 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
     @IBAction func gunluk_calisma_button_action(_ sender: Any) {
         showVC(identifierName: "ViewController_gunlukcalisma")
     }
-    
+    @IBAction func bloglar_button_action(_ sender: Any) {
+        showVC(identifierName: "bloglar_ViewController")
+    }
+    @IBAction func denemesinalari_button_action(_ sender: Any) {
+        showVC(identifierName: "ViewController_gunlukcalisma")
+    }
     @IBOutlet weak var image_view_outlet: AnimatedImageView!
     @IBOutlet var content_view_outlet: UIView!
     @IBOutlet weak var header_view_outlet:UIView!{
@@ -60,7 +65,7 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
         didSet{
             table_view_outlet.delegate = self
             table_view_outlet.dataSource = self
-            table_view_outlet.rowHeight = 143
+            table_view_outlet.rowHeight = 220
             table_view_outlet.backgroundColor = .clear
         }
     }
@@ -185,6 +190,7 @@ extension ViewController{
         let cell = table_view_outlet.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath) as! TableViewCell
         cell.backgroundColor = .clear
         Url_To_Image(url: imageBaseURL + hedef["data"]["slider"][indexPath.item]["img_url"].stringValue, imageView: cell.image_view_outlet)
+        cell.label_outlet.text = hedef["data"]["bloglar"][indexPath.item].stringValue
         cell.image_view_outlet.contentMode = .scaleToFill
         cell.view_outlet.layer.cornerRadius = 12
         cell.layer.cornerRadius = 12
