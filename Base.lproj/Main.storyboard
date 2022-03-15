@@ -306,6 +306,9 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="back_button_action:" destination="BZO-Te-uxd" eventType="touchUpInside" id="kza-V7-VfR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -324,7 +327,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="collection_view_outlet" destination="9jf-NH-yq8" id="C7G-p6-D7C"/>
+                        <outlet property="collection_view_outlet" destination="9jf-NH-yq8" id="rca-d4-f3R"/>
+                        <outlet property="content_view_outlet" destination="lZg-AJ-ej0" id="teN-tA-hSl"/>
+                        <outlet property="label_outlet" destination="bQn-YW-ps4" id="Z4G-8v-cja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shx-9Q-fR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -336,16 +341,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Haftanın tüm testleri bitirdiğinde sonraki hafta açılacak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQn-YW-ps4" customClass="label_desing" customModule="HedefBilsem" customModuleProvider="target">
-                            <rect key="frame" x="19" y="61" width="375" height="106"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Haftanın tüm testleri bitirdiğinde sonraki hafta açılacak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQn-YW-ps4">
+                            <rect key="frame" x="19" y="40" width="375" height="106"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-NH-yq8">
-                            <rect key="frame" x="19" y="189" width="375" height="1060"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-NH-yq8">
+                            <rect key="frame" x="19" y="175" width="375" height="1074"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SWp-rU-Jq0">
@@ -362,7 +367,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="269"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-CQ-5n7">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-CQ-5n7">
                                                 <rect key="frame" x="8" y="8" width="207" height="253"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -389,7 +394,7 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="16.99 TL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oir-Oy-V4r">
                                                         <rect key="frame" x="0.0" y="208" width="207" height="45"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -420,9 +425,6 @@
     </scenes>
     <designables>
         <designable name="8Cq-yb-JDW"/>
-        <designable name="bQn-YW-ps4">
-            <size key="intrinsicContentSize" width="413" height="20.5"/>
-        </designable>
         <designable name="yp5-rZ-hTO">
             <size key="intrinsicContentSize" width="178" height="31"/>
         </designable>
