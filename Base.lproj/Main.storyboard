@@ -144,37 +144,36 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BIT-cW-uuL">
-                                <size key="itemSize" width="137" height="113"/>
+                                <size key="itemSize" width="144" height="113"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                             <cells>
                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CollectionViewCell" reuseIdentifier="CollectionViewCell" id="9pX-T7-qAh" customClass="CollectionViewCell" customModule="HedefBilsem" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="26" width="137" height="113"/>
+                                    <rect key="frame" x="0.0" y="26" width="144" height="113"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vFk-bV-YxN">
-                                        <rect key="frame" x="0.0" y="0.0" width="137" height="113"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-XQ-aWi" customClass="view_desing" customModule="HedefBilsem" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="129" height="97"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="4" y="8" width="136" height="97"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cq-yb-JDW" customClass="label_desing" customModule="HedefBilsem" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="97"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="97"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="1" green="0.81372549019999996" blue="0.81372549019999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </collectionViewCellContentView>
-                                    <size key="customSize" width="137" height="113"/>
+                                    <size key="customSize" width="144" height="113"/>
                                     <connections>
                                         <outlet property="label_outlet" destination="8Cq-yb-JDW" id="vaN-B7-Shb"/>
                                         <outlet property="view_outlet" destination="uxX-XQ-aWi" id="BKE-kM-IQP"/>
@@ -345,7 +344,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="collection_view_outlet" destination="9jf-NH-yq8" id="rca-d4-f3R"/>
+                        <outlet property="collection_view_outlet" destination="9jf-NH-yq8" id="5lV-SK-NKB"/>
                         <outlet property="content_view_outlet" destination="lZg-AJ-ej0" id="teN-tA-hSl"/>
                         <outlet property="label_outlet" destination="bQn-YW-ps4" id="Z4G-8v-cja"/>
                     </connections>
@@ -368,7 +367,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-NH-yq8">
-                            <rect key="frame" x="19" y="175" width="375" height="1074"/>
+                            <rect key="frame" x="19" y="175" width="375" height="1091"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SWp-rU-Jq0">
@@ -377,11 +376,6 @@
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
-                            <view key="backgroundView" contentMode="scaleToFill" id="yC2-1j-Ewj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1074"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <cells>
                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="gunlukcalisma_CollectionViewCell" reuseIdentifier="gunlukcalisma_CollectionViewCell" id="Iru-Sp-jAh" customClass="gunlukcalisma_CollectionViewCell" customModule="HedefBilsem" customModuleProvider="target">
                                     <rect key="frame" x="80" y="0.0" width="215" height="269"/>
@@ -491,7 +485,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="collection_view_outlet" destination="FoK-Ic-pdn" id="xdh-IK-Cwj"/>
+                        <outlet property="collection_view_outlet" destination="FoK-Ic-pdn" id="ygt-ys-96Q"/>
                         <outlet property="content_view_outlet" destination="hM3-io-03a" id="TcT-PC-EHY"/>
                     </connections>
                 </viewController>
@@ -523,7 +517,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y99-Kq-wYL" customClass="view2_desing" customModule="HedefBilsem" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="0.0" width="179" height="233"/>
+                                                <rect key="frame" x="8" y="0.0" width="180" height="233"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLt-Aj-6GD">
@@ -669,6 +663,93 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="2079.7101449275365" y="66.964285714285708"/>
+        </scene>
+        <!--Blog detay View Controller-->
+        <scene sceneID="MAL-4l-coc">
+            <objects>
+                <viewController storyboardIdentifier="blog_detayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RDs-Ea-0x2" customClass="blog_detayViewController" customModule="HedefBilsem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ISz-fH-ZeJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="avf-l2-cqx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bloglar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxd-2H-MhG">
+                                        <rect key="frame" x="107" y="44" width="200" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWp-pc-vv3">
+                                        <rect key="frame" x="24" y="45" width="37" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="back_button_action:" destination="Np0-a0-jzx" eventType="touchUpInside" id="2ZJ-2a-0rE"/>
+                                            <action selector="back_button_action:" destination="96x-mH-lfr" eventType="touchUpInside" id="we4-GW-IyD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dg-XN-i8K" customClass="IKScrollView" customModule="IKScrollView">
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kUE-fA-kmT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BjE-ts-pwe"/>
+                                <connections>
+                                    <outlet property="contentView" destination="Vf7-r1-72d" id="P9e-Yd-iS2"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RAS-os-3nW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="content_view_outlet" destination="Vf7-r1-72d" id="3Tm-vK-9dX"/>
+                        <outlet property="image_view_outlet" destination="Jsk-il-PPA" id="Z4M-AP-Fem"/>
+                        <outlet property="label_outlet" destination="jzd-IZ-VeA" id="Jbj-P8-kjq"/>
+                        <outlet property="view_outlet" destination="a9j-tp-msD" id="IRk-W7-okd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNw-BQ-8SN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Vf7-r1-72d" customClass="UIScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flat-design-abstract-background_23-2149116123" translatesAutoresizingMaskIntoConstraints="NO" id="yr0-dX-ZdI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a9j-tp-msD" customClass="view2_desing" customModule="HedefBilsem" customModuleProvider="target">
+                            <rect key="frame" x="20" y="80" width="374" height="1138"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsk-il-PPA" customClass="AnimatedImageView" customModule="Kingfisher">
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="262"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-IZ-VeA">
+                                    <rect key="frame" x="8" y="283" width="358" height="847"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="dMg-fy-bq5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="2792.753623188406" y="66.964285714285708"/>
         </scene>
     </scenes>
     <designables>

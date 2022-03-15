@@ -183,6 +183,10 @@ extension ViewController{
 }
 extension ViewController{
     //TABLEVIEW
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if 
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hedef["data"].count
     }
