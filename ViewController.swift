@@ -184,8 +184,8 @@ extension ViewController{
 extension ViewController{
     //TABLEVIEW
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if 
-        
+        showVC(identifierName: "blog_detayViewController")
+        blog_id_request_json(id: hedef["data"][indexPath.item]["blog_id"].stringValue)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hedef["data"].count
@@ -210,9 +210,29 @@ extension ViewController{
                 content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
             }
         }
-        
-        return cell
-        
+            return cell
     }
-    
+}
+extension ViewController{
+    func blog_id_request_json(id : String){
+        let parameters : Parameters = [
+            "blog_id" : id ,
+        ]
+        
+        let url = apiURL + "/get_blog_detay"
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                
+                hedef = JSON(value)
+                showVC(identifierName: "blog_detayViewController")
+
+            case .failure(let error):
+                Swift.print(error)
+            }
+        }
+}
 }

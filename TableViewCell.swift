@@ -21,6 +21,5 @@ class TableViewCell: UITableViewCell {
     }
     @IBOutlet weak var view_outlet: UIView!
     @IBOutlet weak var image_view_outlet: AnimatedImageView!
-    
     @IBOutlet weak var label_outlet: UILabel!
 }

@@ -18,33 +18,21 @@ class blog_detayViewController: MyController {
     @IBOutlet var content_view_outlet: UIScrollView!
     @IBOutlet weak var image_view_outlet: AnimatedImageView!{
         didSet{
-            Url_To_Image(url: imageBaseURL + hedef["data"], imageView: <#T##AnimatedImageView#>)
+            Url_To_Image(url: imageBaseURL + hedef["data"]["img_url"].stringValue, imageView: image_view_outlet)
+            image_view_outlet.layer.cornerRadius = 12
         }
     }
-    @IBOutlet weak var view_outlet: UIView!
-    @IBOutlet weak var label_outlet: UILabel!
+    @IBAction func back_button_action(_ sender: Any) {
+        showVC(identifierName: "ViewController")
+    }
+    @IBOutlet weak var view_outlet: UIView!{
+        didSet{
+            view_outlet.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var label_outlet: UILabel!{
+        didSet{
+            label_outlet.text = hedef["data"]["desc"].stringValue
+        }
+    }
 }
-extension ViewController{
-        //ALAMOFIRE JSON
-    func hedef_blogdetay_list(id: String){
-            let parameters : Parameters = [
-                "user_id" : id,
-            ]
-            let url = apiURL + "/get_blog_detay"
-            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
-                response in
-                
-                switch response.result {
-                case .success(let value):
-                    
-                    hedef = JSON(value)
-                    print(" gelen data: \(hedef)")
-                    
-                case .failure(let error):
-                    Swift.print(error)
-                }
-            }
-        }
-    }
-    
-
