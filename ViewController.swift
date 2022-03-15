@@ -11,15 +11,20 @@ import Alamofire
 import SwiftyJSON
 import ImageSlideshow
 class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
-var slider_array = [KingfisherSource]()
- 
+    var slider_array = [KingfisherSource]()
+    
+   
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         hedef_slider_list()
         hedef_collection_list()
         hedef_table_list()
     }
-
+    @IBAction func gunluk_calisma_button_action(_ sender: Any) {
+        showVC(identifierName: "ViewController_gunlukcalisma")
+    }
+    
     @IBOutlet weak var image_view_outlet: AnimatedImageView!
     @IBOutlet var content_view_outlet: UIView!
     @IBOutlet weak var header_view_outlet:UIView!{
@@ -76,10 +81,10 @@ extension ViewController{
                 hedef = JSON(value)
                 print(" gelen data: \(hedef)")
                 for slider in hedef["data"]["slider"]{
-                            slider_array.append(KingfisherSource(urlString: imageBaseURL + slider.1["img_url"].stringValue)!)
-                        }
-                        
-                        request_sliderView(imageSlide: slider_view_outlet, KingfisherArray: slider_array)
+                    slider_array.append(KingfisherSource(urlString: imageBaseURL + slider.1["img_url"].stringValue)!)
+                }
+                
+                request_sliderView(imageSlide: slider_view_outlet, KingfisherArray: slider_array)
             case .failure(let error):
                 Swift.print(error)
             }
@@ -102,12 +107,15 @@ extension ViewController{
             case .success(let value):
                 
                 hedef = JSON(value)
+                
                 collection_view_outlet.reloadData()
                 collection_view_2_outlet.reloadData()
                 print(" gelen data: \(hedef)")
             case .failure(let error):
                 Swift.print(error)
+                
             }
+            
         }
     }
 }
@@ -117,27 +125,26 @@ extension ViewController{
         return hedef["data"].count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collection_view_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell",for: indexPath) as! CollectionViewCell
-       
-        print("TEST")
-        cell.backgroundColor = .clear
-        cell.label_outlet.text = hedef["data"]["konular"][indexPath.item]["title"].stringValue
-        cell.layer.cornerRadius = 12
-        cell.view_outlet.backgroundColor  = .clear
-        cell.view_outlet.layer.cornerRadius = 12
-        
-        
-        if (collectionView == collection_view_2_outlet){
-                   let cell = collection_view_2_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell2",for: indexPath) as! CollectionViewCell2
-            cell.deneme_label_outlet.text = hedef["data"]["denemeler"][indexPath.item]["title"].stringValue
+        if (collectionView == collection_view_outlet){
+            let cell = collection_view_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell",for: indexPath) as! CollectionViewCell
+            
+            print("TEST")
+            cell.backgroundColor = .clear
+            cell.label_outlet.text = hedef["data"]["konular"][indexPath.item]["title"].stringValue
             cell.layer.cornerRadius = 12
             cell.view_outlet.backgroundColor  = .clear
             cell.view_outlet.layer.cornerRadius = 12
+            return cell
+        }else{
+            let cell = collection_view_2_outlet.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell2",for: indexPath) as! CollectionViewCell2
+            cell.deneme_label_outlet.text = hedef["data"]["denemeler"][indexPath.item]["title"].stringValue
+            cell.layer.cornerRadius = 12
+            cell.view_outlet.layer.cornerRadius = 12
             print("bıdbııdıdbıdıd")
-               }
-        return cell
+            
+            return cell
+        }
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 180,height: 120)
     }
@@ -178,21 +185,21 @@ extension ViewController{
         cell.image_view_outlet.contentMode = .scaleToFill
         cell.view_outlet.layer.cornerRadius = 12
         cell.layer.cornerRadius = 12
-        
         let when = DispatchTime.now() + 0.05 //Burası 0.05 sani bekletiyor.
+        
+        DispatchQueue.main.asyncAfter(deadline: when){
+            
+            DispatchQueue.main.async{ [self] in
                 
-                DispatchQueue.main.asyncAfter(deadline: when){
-                    
-                    DispatchQueue.main.async{ [self] in
-                        
-                        content_view_outlet.autoresizesSubviews = false //contentview autoresize false yapıyoruz ki büyütürken herşey büyümesin.
-                        table_view_outlet.setFrameHeight(height: table_view_outlet.contentSize.height) //tableview'i içindeki nesnelerin boyutu kadar büyütüyoruz.
-                        content_view_outlet.setFrameHeight(height: table_view_outlet.frame.maxY + 20) //contentviewe tableview max y + 20 kadar büyütüyoruz.
-                        content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
-                    }
-                }
+                content_view_outlet.autoresizesSubviews = false //contentview autoresize false yapıyoruz ki büyütürken herşey büyümesin.
+                table_view_outlet.setFrameHeight(height: table_view_outlet.contentSize.height) //tableview'i içindeki nesnelerin boyutu kadar büyütüyoruz.
+                content_view_outlet.setFrameHeight(height: table_view_outlet.frame.maxY + 20) //contentviewe tableview max y + 20 kadar büyütüyoruz.
+                content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
+            }
+        }
+        
         return cell
-
+        
     }
-
+    
 }

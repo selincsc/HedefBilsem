@@ -76,6 +76,7 @@ open class label_desing: UILabel {
         backgroundColor = Color._FFFFFF
         
         
+        
     }
     
     override init(frame: CGRect) {
