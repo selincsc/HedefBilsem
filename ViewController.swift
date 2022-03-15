@@ -21,6 +21,9 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
         hedef_collection_list()
         hedef_table_list()
     }
+    @IBAction func konutestleri_button_action(_ sender: Any) {
+        showVC(identifierName: "konu_testleriViewController")
+    }
     @IBAction func gunluk_calisma_button_action(_ sender: Any) {
         showVC(identifierName: "ViewController_gunlukcalisma")
     }

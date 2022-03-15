@@ -34,6 +34,7 @@ open class view2_desing: UIView {
     
     func setup() {
         layer.cornerRadius = 12
+        backgroundColor = Color._FFFFFF
         
     }
     
