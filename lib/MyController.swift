@@ -99,3 +99,4 @@ extension String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 }
+

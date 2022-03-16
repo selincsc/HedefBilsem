@@ -182,10 +182,34 @@ extension ViewController{
     }
 }
 extension ViewController{
+    func blog_id_request_json(id : String){
+        let parameters : Parameters = [
+            "blog_id" : id ,
+        ]
+        
+        let url = apiURL + "/get_blog_detay"
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                
+                hedef = JSON(value)
+                showVC(identifierName: "blog_detayViewController")
+                print("smfşöövsiv")
+
+            case .failure(let error):
+                Swift.print(error)
+            }
+        }
+}
+}
+extension ViewController{
     //TABLEVIEW
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        blog_id_request_json(id: hedef["data"]["slider"][indexPath.item]["blog_id"].stringValue)
         showVC(identifierName: "blog_detayViewController")
-        blog_id_request_json(id: hedef["data"][indexPath.item]["blog_id"].stringValue)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hedef["data"].count
@@ -194,7 +218,7 @@ extension ViewController{
         let cell = table_view_outlet.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath) as! TableViewCell
         cell.backgroundColor = .clear
         Url_To_Image(url: imageBaseURL + hedef["data"]["slider"][indexPath.item]["img_url"].stringValue, imageView: cell.image_view_outlet)
-        cell.label_outlet.text = hedef["data"]["bloglar"][indexPath.item].stringValue
+        cell.label_outlet.text = hedef["data"]["bloglar"][indexPath.item].stringValue.htmlToString
         cell.image_view_outlet.contentMode = .scaleToFill
         cell.view_outlet.layer.cornerRadius = 12
         cell.layer.cornerRadius = 12
@@ -213,26 +237,16 @@ extension ViewController{
             return cell
     }
 }
-extension ViewController{
-    func blog_id_request_json(id : String){
-        let parameters : Parameters = [
-            "blog_id" : id ,
-        ]
-        
-        let url = apiURL + "/get_blog_detay"
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
-            response in
-            
-            switch response.result {
-            case .success(let value):
-                
-                hedef = JSON(value)
-                showVC(identifierName: "blog_detayViewController")
-
-            case .failure(let error):
-                Swift.print(error)
+extension String{
+    private var htmlToAttributedString: NSAttributedString? {
+            guard let data = data(using: .utf8) else { return nil }
+            do {
+                return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+            } catch {
+                return nil
             }
         }
-}
+        var htmlToString: String {
+            return htmlToAttributedString?.string ?? ""
+        }
 }
