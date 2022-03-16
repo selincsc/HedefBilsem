@@ -28,11 +28,25 @@ class blog_detayViewController: MyController {
     @IBOutlet weak var view_outlet: UIView!{
         didSet{
             view_outlet.layer.cornerRadius = 12
+            view_outlet.backgroundColor = .clear
         }
     }
     @IBOutlet weak var label_outlet: UILabel!{
         didSet{
-            label_outlet.text = hedef["data"]["desc"].stringValue
+            label_outlet.text = hedef["data"]["desc"].stringValue.htmlToString
         }
     }
+}
+extension String{
+    private var htmlToAttributedString: NSAttributedString? {
+            guard let data = data(using: .utf8) else { return nil }
+            do {
+                return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+            } catch {
+                return nil
+            }
+        }
+        var htmlToString: String {
+            return htmlToAttributedString?.string ?? ""
+        }
 }
