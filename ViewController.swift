@@ -12,14 +12,16 @@ import SwiftyJSON
 import ImageSlideshow
 class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
     var slider_array = [KingfisherSource]()
+    var sliderPage = 0;
     
-   
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         hedef_slider_list()
         hedef_collection_list()
         hedef_table_list()
+    }
+    @IBAction func slider_thing_action(_ sender: Any) {
+        blog_id_request_json(id: hedef["data"]["slider"][sliderPage]["blog_id"].stringValue)
     }
     @IBAction func konutestleri_button_action(_ sender: Any) {
         showVC(identifierName: "konu_testleriViewController")
@@ -43,6 +45,7 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var slider_view_outlet: ImageSlideshow!{
         didSet{
             slider_view_outlet.layer.cornerRadius = 12
+            slider_view_outlet.delegate = self
         }
     }
     @IBOutlet weak var collection_view_outlet: UICollectionView!{
@@ -70,7 +73,13 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
         }
     }
 }
-
+//MARK: SLIDER FUNCS
+extension ViewController: ImageSlideshowDelegate { // Slider için gerekli olan delegete fonksiyonlarının tanımlandığı alandır.
+    func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
+    
+       sliderPage = page //slider altındaki indigatorun tanımlandığı alandır.
+    }
+}
 extension ViewController{
     //SLİDER
     //ALAMOFIRE JSON

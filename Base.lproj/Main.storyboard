@@ -110,6 +110,10 @@
                             <rect key="frame" x="19" y="44" width="375" height="215"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="QDw-QN-klj" appends="YES" id="Dsk-fy-jnN"/>
+                            </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yp5-rZ-hTO" customClass="button_desing" customModule="HedefBilsem" customModuleProvider="target">
                             <rect key="frame" x="25" y="276" width="366" height="47"/>
@@ -297,6 +301,11 @@
                     <viewLayoutGuide key="safeArea" id="KP5-4a-hfS"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <tapGestureRecognizer id="QDw-QN-klj">
+                    <connections>
+                        <action selector="slider_thing_action:" destination="BYZ-38-t0r" id="DWw-up-R98"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
         </scene>
