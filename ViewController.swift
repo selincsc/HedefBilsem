@@ -121,9 +121,7 @@ extension ViewController{
                 print(" gelen data: \(hedef)")
             case .failure(let error):
                 Swift.print(error)
-                
             }
-            
         }
     }
 }
@@ -131,8 +129,8 @@ extension ViewController{
     //COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == collection_view_outlet){
-            showVC(identifierName: "haf_za_ViewController")
-        }
+            konu_id_request_json(id: hedef["data"][indexPath.item]["konu_id"].stringValue)
+            }
         else{
             (collectionView == collection_view_2_outlet)
                 showVC(identifierName: "ViewController_gunlukcalisma")
@@ -165,6 +163,33 @@ extension ViewController{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 180,height: 120)
+    }
+    func konu_id_request_json(id : String){
+            let parameters : Parameters = [
+                "konu_id" : id ,
+                "user_id" : "2Nhbjksb7KRkl7CpHIiLGHAEM4rtOtLS",
+                "type" : "2",
+            ]
+            
+            let url = apiURL + "/get_test_aciklama"
+            
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
+                response in
+                
+                switch response.result {
+                case .success(let value):
+                    
+                    hedef = JSON(value)
+                    
+                    print("PPP :\(hedef)")
+                    
+                    showVC(identifierName: "haf_za_ViewController")
+                    print("smfşöövsiv")
+
+                case .failure(let error):
+                    Swift.print(error)
+                }
+            }
     }
 }
 extension ViewController{
@@ -228,7 +253,7 @@ extension ViewController{
         let cell = table_view_outlet.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath) as! TableViewCell
         cell.backgroundColor = .clear
         Url_To_Image(url: imageBaseURL + hedef["data"]["slider"][indexPath.item]["img_url"].stringValue, imageView: cell.image_view_outlet)
-        cell.label_outlet.text = hedef["data"]["bloglar"][indexPath.item].stringValue
+        cell.label_outlet.text = hedef["data"]["bloglar"][indexPath.item]["title"].stringValue
         cell.image_view_outlet.contentMode = .scaleToFill
         cell.view_outlet.layer.cornerRadius = 12
         cell.layer.cornerRadius = 12

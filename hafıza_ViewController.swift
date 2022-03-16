@@ -15,7 +15,11 @@ class haf_za_ViewController: MyController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var header_label_outlet: UILabel!{
+        didSet{
+            header_label_outlet.text = hedef["keywords"]["title"].stringValue
+        }
+    }
     @IBAction func back_button_action(_ sender: Any) {
         showVC(identifierName: "ViewController")
     }
