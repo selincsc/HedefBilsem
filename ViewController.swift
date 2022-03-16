@@ -129,7 +129,7 @@ extension ViewController{
     //COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == collection_view_outlet){
-            konu_id_request_json(id: hedef["data"][indexPath.item]["konu_id"].stringValue)
+            konu_id_request_json(id: hedef["data"]["konular"][indexPath.item]["konu_id"].stringValue)
             }
         else{
             (collectionView == collection_view_2_outlet)
@@ -170,7 +170,9 @@ extension ViewController{
                 "user_id" : "2Nhbjksb7KRkl7CpHIiLGHAEM4rtOtLS",
                 "type" : "2",
             ]
-            
+        
+        print("PARAMETRELER: \(parameters)")
+        
             let url = apiURL + "/get_test_aciklama"
             
             Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]

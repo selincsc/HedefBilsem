@@ -340,14 +340,14 @@
                                 <rect key="frame" x="19" y="150" width="375" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Toplam 10 soru var. Toplam süre 600 sn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgN-fH-UOc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgN-fH-UOc">
                                         <rect key="frame" x="3" y="13" width="347" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HAZIRSAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-lg-iYS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-lg-iYS">
                                         <rect key="frame" x="3" y="54" width="347" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -363,9 +363,7 @@
                                 <color key="backgroundColor" red="0.44141066518041439" green="0.80259089664641192" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Başla">
-                                    <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" title="Başla"/>
                                 <connections>
                                     <action selector="button_action:" destination="Kt9-Q4-i4g" eventType="touchUpInside" id="78l-DV-KyF"/>
                                 </connections>
@@ -375,7 +373,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="hazırsan_label_outlet" destination="xMg-lg-iYS" id="8Us-Id-3mE"/>
                         <outlet property="header_label_outlet" destination="Lrs-Fz-MMu" id="sFi-9t-42G"/>
+                        <outlet property="soru_metin_label_outlet" destination="wgN-fH-UOc" id="ehd-wI-2Er"/>
                         <outlet property="view_outlet" destination="r0E-tc-9rK" id="u4F-Il-o40"/>
                     </connections>
                 </viewController>
@@ -842,7 +842,7 @@
     <designables>
         <designable name="8Cq-yb-JDW"/>
         <designable name="W1v-Hv-Rbg">
-            <size key="intrinsicContentSize" width="80.5" height="44"/>
+            <size key="intrinsicContentSize" width="59" height="31"/>
         </designable>
         <designable name="jzd-IZ-VeA">
             <size key="intrinsicContentSize" width="41.5" height="20.5"/>
