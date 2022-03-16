@@ -14,7 +14,5 @@ class konu_testleriCollectionViewCell: UICollectionViewCell {
             view_outlet.layer.cornerRadius = 12
         }
     }
-    @IBAction func button_action(_ sender: Any) {
-    }
     @IBOutlet weak var label_outlet: UILabel!
 }

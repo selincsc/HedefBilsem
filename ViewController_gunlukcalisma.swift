@@ -15,6 +15,8 @@ class ViewController_gunlukcalisma: MyController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         gunlukcalisma_collection_list()
     }
+    @IBAction func go_button_click_action(_ sender: Any) {
+    }
     @IBOutlet weak var label_outlet: label_desing!{
             didSet{
                 label_outlet.layer.cornerRadius = 12

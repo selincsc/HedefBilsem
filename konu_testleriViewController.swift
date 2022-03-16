@@ -16,6 +16,9 @@ class konu_testleriViewController: MyController, UICollectionViewDelegate, UICol
         konutestleri_collection_list()
         // Do any additional setup after loading the view.
     }
+    @IBAction func go_button_action(_ sender: Any) {
+        konu_id_request_json(id: hedef["data"]["konular"]["konu_id"].stringValue)
+    }
     @IBOutlet weak var collection_view_outlet: UICollectionView!{
         didSet{
             collection_view_outlet.dataSource = self
@@ -53,6 +56,35 @@ extension konu_testleriViewController{
             
         }
     }
+    func konu_id_request_json(id : String){
+            let parameters : Parameters = [
+                "konu_id" : id ,
+                "user_id" : "2Nhbjksb7KRkl7CpHIiLGHAEM4rtOtLS",
+                "type" : "2",
+            ]
+        
+        print("PARAMETRELER: \(parameters)")
+        
+            let url = apiURL + "/get_test_aciklama"
+            
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { [self]
+                response in
+                
+                switch response.result {
+                case .success(let value):
+                    
+                    hedef = JSON(value)
+                    
+                    print("PPP :\(hedef)")
+                    
+                    showVC(identifierName: "haf_za_ViewController")
+                    print("smfşöövsiv")
+
+                case .failure(let error):
+                    Swift.print(error)
+                }
+            }
+    }
 }
 extension konu_testleriViewController{
     //COLLECTIONVIEW
@@ -78,6 +110,7 @@ extension konu_testleriViewController{
                 content_view_outlet.autoresizesSubviews = true //contentview autoresize true yapıyoruz. eski haline herşey dönsün.
             }
         }
+        
 
             return cell
         }

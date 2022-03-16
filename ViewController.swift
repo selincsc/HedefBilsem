@@ -74,6 +74,7 @@ class ViewController: MyController, UICollectionViewDelegate, UICollectionViewDa
 extension ViewController{
     //SLİDER
     //ALAMOFIRE JSON
+    
     func hedef_slider_list(){
         let parameters : Parameters = [
             "user_id" : "2Nhbjksb7KRkl7CpHIiLGHAEM4rtOtLS",
