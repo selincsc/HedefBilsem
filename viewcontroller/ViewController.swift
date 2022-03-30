@@ -145,7 +145,6 @@ extension ViewController{
             (collectionView == collection_view_2_outlet)
                 showVC(identifierName: "ViewController_gunlukcalisma")
         }
-        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return hedef["data"].count
